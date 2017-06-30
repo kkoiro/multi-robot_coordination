@@ -1,16 +1,16 @@
 package mypackage;
 
-import java.awt.Point;
-
 
 public class Robot {
   private final int id;
-  private Point location;
+  private int x;
+  private int y;
   private boolean state;
 
   public Robot(int id, int x, int y) {
     this.id = id;
-    location = new Point(x, y);
+    this.x = x;
+    this.y = y;
     state = true;
   }
 
@@ -18,8 +18,12 @@ public class Robot {
     return id;
   }
 
-  Point getLocation() {
-    return location;
+  int getX() {
+    return x;
+  }
+
+  int getY() {
+    return y;
   }
 
   boolean getState() {
