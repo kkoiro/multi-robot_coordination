@@ -43,7 +43,7 @@ public class RobotRoom extends JFrame implements Runnable {
     Random random = new Random();
     int i;
     for(i = 0; i < robotCount; i++) {
-      robots[i] = new Robot(i, random.nextInt(roomSize), random.nextInt(roomSize));
+      robots[i] = new Robot(i, random.nextInt(roomSize), random.nextInt(roomSize), random.nextInt((int)Math.pow(2, 24)));
     }
   }
 
@@ -53,11 +53,11 @@ public class RobotRoom extends JFrame implements Runnable {
 
   @Override
   public void paint(Graphics g) {
-    g.setColor(Color.RED);
     g.clearRect(0, 0, roomSize, roomSize);
     int i;
     for(i = 0; i < robotCount; i++) {
-      g.fillOval(robots[i].getX(), robots[i].getY(), 5, 5);
+      g.setColor(robots[i].getColor());
+      g.fillOval(robots[i].getX(), robots[i].getY(), 10, 10);
     }
   }
 

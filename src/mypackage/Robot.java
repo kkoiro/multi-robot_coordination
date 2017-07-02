@@ -1,16 +1,20 @@
 package mypackage;
 
+import java.awt.Color;
+
 
 public class Robot {
   private final int id;
   private int x;
   private int y;
+  private Color color;
   private boolean state;
 
-  public Robot(int id, int x, int y) {
+  public Robot(int id, int x, int y, int color) {
     this.id = id;
     this.x = x;
     this.y = y;
+    this.color = new Color(color);
     state = true;
   }
 
@@ -24,6 +28,10 @@ public class Robot {
 
   public int getY() {
     return y;
+  }
+
+  public Color getColor() {
+    return color;
   }
 
   public boolean getState() {
