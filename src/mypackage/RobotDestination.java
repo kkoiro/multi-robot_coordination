@@ -6,7 +6,7 @@ public class RobotDestination {
   private int y;
   private boolean status;
 
-  RobotDestination(int x, int y) {
+  public RobotDestination(int x, int y) {
     this.x = x;
     this.y = y;
     status = true;

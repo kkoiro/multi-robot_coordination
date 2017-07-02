@@ -59,6 +59,11 @@ public class RobotRoom extends JFrame implements Runnable {
 
   @Override
   public void run() {
+    int i;
+    for(i = 0; i < robotCount; i++) {
+      Thread thread = new Thread(new RobotController(this, robots[i]));
+      thread.start();
+    }
     try {
       while(true) {
         repaint();

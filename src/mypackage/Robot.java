@@ -14,23 +14,28 @@ public class Robot {
     state = true;
   }
 
-  int getId() {
+  public int getId() {
     return id;
   }
 
-  int getX() {
+  public int getX() {
     return x;
   }
 
-  int getY() {
+  public int getY() {
     return y;
   }
 
-  boolean getState() {
+  public boolean getState() {
     return state;
   }
 
-  void powerOff() {
+  public void move(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  public void powerOff() {
     state = false;
   }
 }

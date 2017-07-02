@@ -12,31 +12,9 @@ public class MultiRobotCoordination {
   static RobotRoom robotroom;
 
   public static void main(String args[]) {
-    System.out.println("Hello, world");
+    System.out.println("Start simulation");
     robotroom = new RobotRoom(ROOM_SIZE, RADIUS, ROBOT_COUNT);
     Thread thread = new Thread(robotroom);
-    Thread thread2 = new Thread(new MyRunnable());
     thread.start();
-    thread2.start();
-  }
-}
-
-
-class MyRunnable implements Runnable {
-  static int i = 0;
-
-  @Override
-  public void run() {
-    try {
-      while(true) {
-        //System.out.println(i);
-        Random random = new Random();
-        System.out.println(random.nextInt(10));
-        i++;
-        Thread.sleep(1000);
-      }
-    } catch(InterruptedException e) {
-      e.printStackTrace();
-    }
   }
 }
