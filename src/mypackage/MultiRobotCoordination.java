@@ -18,10 +18,10 @@ public class MultiRobotCoordination {
     } else {
       robotCount = Integer.parseInt(args[0]);
       algorithm = Integer.parseInt(args[1]);
+      System.out.println("Start simulation");
+      robotRoom = new RobotRoom(ROOM_SIZE, RADIUS, robotCount);
+      Thread thread = new Thread(robotRoom);
+      thread.start();
     }
-    System.out.println("Start simulation");
-    robotRoom = new RobotRoom(ROOM_SIZE, RADIUS, robotCount);
-    Thread thread = new Thread(robotRoom);
-    thread.start();
   }
 }
