@@ -20,7 +20,12 @@ public class RobotDestination {
     return y;
   }
 
-  public boolean getStatus() {
-    return status;
+  public synchronized boolean lockDestination() {
+    if(status) {
+      status = false;
+      return true;
+    } else {
+      return false;
+    }
   }
 }
