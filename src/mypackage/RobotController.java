@@ -36,7 +36,7 @@ public class RobotController implements Runnable {
   private int random(int prevIdx) {
     Random random = new Random();
     int nextIdx = prevIdx;
-    while(nextIdx != prevIdx) {
+    while(nextIdx == prevIdx) {
       nextIdx = random.nextInt(robotRoom.robotCount);
     }
     return nextIdx;
@@ -78,7 +78,14 @@ public class RobotController implements Runnable {
           } else {
             flagX = false;
             flagY = false;
-            robotDestinationIndex = roundRobin(robotDestinationIndex);
+            switch(MultiRobotCoordination.algorithm) {
+              case 1:
+                robotDestinationIndex = roundRobin(robotDestinationIndex);
+                break;
+              case 2:
+                robotDestinationIndex = random(robotDestinationIndex);
+                break;
+            }
             robotDestinationX = robotRoom.getRobotDestination(robotDestinationIndex).getX();
             robotDestinationY = robotRoom.getRobotDestination(robotDestinationIndex).getY();
           }
